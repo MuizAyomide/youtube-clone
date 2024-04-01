@@ -27,11 +27,6 @@ const PlayVideo = () => {
   };
 
 
-  const fetchOtherData = async () => {
-
-  }
-
-
   useEffect(() => {
     fetchVideoData();
   }, []);
