@@ -65,7 +65,7 @@ const Sidebar = ({sidebar, category, setCategory}) => {
         </div>
         <div className="side-link">
           <img src={simon} alt="" />
-          <p>MrBeast</p>
+          <p>Mr_Beast</p>
         </div>
         <div className="side-link">
           <img src={tom} alt="" />
