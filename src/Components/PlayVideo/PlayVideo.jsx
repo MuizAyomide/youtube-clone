@@ -12,8 +12,7 @@ import moment from "moment";
 import { useParams } from "react-router-dom";
 
 const PlayVideo = () => {
-
-  const {videoId} = useParams();
+  const { videoId } = useParams();
 
   const [apiData, setApiData] = useState(null);
   const [channelData, setChannelData] = useState(null);
@@ -25,7 +24,6 @@ const PlayVideo = () => {
       .then((res) => res.json())
       .then((data) => setApiData(data.items[0]));
   };
-
 
   useEffect(() => {
     fetchVideoData();
@@ -44,10 +42,14 @@ const PlayVideo = () => {
       ></iframe>
       <h3>{apiData ? apiData.snippet.title : "Title Here"}</h3>
       <div className="play-video-info">
-        <p>{apiData ? value_converter(apiData.statistics.viewCount):'16k'} Views &bull; 2 days ago</p>
+        <p>
+          {apiData ? value_converter(apiData.statistics.viewCount) : "16k"}{" "}
+          Views &bull; 2 days ago
+        </p>
         <div>
           <span>
-            <img src={like} alt="" /> {apiData?apiData.statistics.likeCount:155}
+            <img src={like} alt="" />{" "}
+            {apiData ? apiData.statistics.likeCount : 155}
           </span>
           <span>
             <img src={dislike} alt="" /> 2
@@ -70,12 +72,12 @@ const PlayVideo = () => {
         <button>Subscribe</button>
       </div>
       <div className="vid-description">
-        <p>Channel that makes learning Easy</p>
-        <p>Subscribe GreatStack to Watch More Tutorials on Web Development</p>
+        <p>{item.snippet.title}</p>
+        <p>{item.snippet.channelTitle}</p>
         <hr />
         <h4>130 Comments</h4>
         <div className="comment">
-          <img src={user_profile} alt="" />  
+          <img src={user_profile} alt="" />
           <div>
             <h3>
               Jack Nichole <span>1 day ago</span>
