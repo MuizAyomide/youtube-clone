@@ -11,7 +11,7 @@ import thumbnail8 from "../../assets/thumbnail8.png";
 import { API_KEY, value_converter } from "../../Data";
 import { Link } from "react-router-dom";
 
-const Recommended = ({categoryId}) => {
+const Recommended = ({ categoryId }) => {
   const [apiData, setApiData] = useState([]);
 
   const fetchData = async () => {
@@ -23,20 +23,24 @@ const Recommended = ({categoryId}) => {
 
   useEffect(() => {
     fetchData();
-  },[]);
+  }, []);
 
   return (
     <div className="recommended">
       {apiData.map((item, index) => {
         return (
-        <Link to={`/video/${item.snippet.categoryId}/${item.id}`} key={index} className="side-video-list">
+          <Link
+            to={`/video/${item.snippet.categoryId}/${item.id}`}
+            key={index}
+            className="side-video-list"
+          >
             <img src={item.snippet.thumbnails.medium.url} alt="" />
             <div className="vid-info">
               <h4>{item.snippet.title}</h4>
               <p>{item.snippet.channelTitle}</p>
               <p>{value_converter(item.statistics.viewCount)} Views</p>
             </div>
-            </Link>
+          </Link>
         );
       })}
     </div>
