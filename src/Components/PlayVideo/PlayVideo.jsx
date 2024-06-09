@@ -11,7 +11,7 @@ import { API_KEY, value_converter } from "../../Data";
 import moment from "moment";
 import { useParams } from "react-router-dom";
 
-const PlayVideo = () => {
+const PlayVideo = (category) => {
   const { videoId } = useParams();
 
   const [apiData, setApiData] = useState(null);
@@ -19,7 +19,7 @@ const PlayVideo = () => {
 
   const fetchVideoData = async () => {
     //fetching videos data
-    const videoDetails_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`;
+    const videoDetails_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&Id=${videoId}&key=${API_KEY}`;
     await fetch(videoDetails_url)
       .then((res) => res.json())
       .then((data) => setApiData(data.items[0]));
@@ -72,8 +72,8 @@ const PlayVideo = () => {
         <button>Subscribe</button>
       </div>
       <div className="vid-description">
-        <p>{item.snippet.title}</p>
-        <p>{item.snippet.channelTitle}</p>
+        {/* <p>{item.snippet.title}</p>
+        <p>{item.snippet.channelTitle}</p> */}
         <hr />
         <h4>130 Comments</h4>
         <div className="comment">
