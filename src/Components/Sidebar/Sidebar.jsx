@@ -24,6 +24,7 @@ const Sidebar = ({ sidebar, category, setCategory }) => {
           onClick={() => setCategory(0)}
         >
           <img src={home} alt="" />
+          
           <p>Home</p>
         </div>
         <div
