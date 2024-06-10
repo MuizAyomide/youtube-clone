@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { API_KEY, value_converter } from "../../Data";
 import moment from "moment";
 
+
+
 const Feed = ({ category }) => {
   const [data, setData] = useState([]);
 
