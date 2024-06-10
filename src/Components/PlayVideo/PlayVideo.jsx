@@ -42,6 +42,7 @@ const PlayVideo = (category) => {
       <div className="play-video-info">
         {apiData && (
           <p>
+
             {value_converter(apiData.statistics.viewCount)} Views &bull; 2 days
             ago
           </p>
@@ -49,6 +50,7 @@ const PlayVideo = (category) => {
         <div>
           {apiData && (
             <>
+            
               <span>
                 <img src={like} alt="" /> {apiData.statistics.likeCount}
               </span>
